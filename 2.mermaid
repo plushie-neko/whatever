@@ -1,0 +1,18 @@
+graph LR
+    Input[Вход] --> PreAmp[Предусилитель<br/>DA1 K544УD2B<br/>Op-amp]
+    PreAmp --> PosChannel[Положительный канал<br/>VT1,VT3,VT5,VT6]
+    PreAmp --> NegChannel[Отрицательный канал<br/>VT2,VT4,VT7,VT8]
+    PreAmp --> NNFB[Нелинейная ООС<br/>R6,R7,VD3-VD6,R4]
+    PosChannel --> Load[Нагрузка 4Ω]
+    NegChannel --> Load
+    Load --> NFB[Линейная ООС<br/>R1, R5]
+    NFB --> Input
+    NNFB --> Input
+    PowerSupply[Питание<br/>±44V] --> StabPower[Стабилизация напряжения<br/>VD1-VD2]
+    PowerSupply --> PosChannel
+    PowerSupply --> NegChannel
+    StabPower --> PreAmp
+   
+    style Input fill:#f9f,stroke:#333
+    style Load fill:#f9f,stroke:#333
+    style PowerSupply fill:#bbf,stroke:#333
